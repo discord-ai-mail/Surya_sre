@@ -1,157 +1,214 @@
-<!doctype html>
+<!DOCTYPE html>
+
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1"/>
-<title>Suryasre — Respect Tribute (15s)</title>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600;800&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday Dr. Surya Swathe</title>
 <style>
-  :root{ --bg:#06060a; }
-  html,body{height:100%;margin:0;background:linear-gradient(180deg,#020214,#081022);font-family:'Montserrat',system-ui,Arial;color:#fff;}
-  .stage{
-    width:min(420px,92vw);
-    aspect-ratio:9/16;
-    margin:calc((100vh - min(92vh, calc(100vw*16/9)))/2) auto;
-    position:relative; overflow:hidden; border-radius:18px;
-    box-shadow:0 26px 70px rgba(0,0,0,0.6);
-    background:
-      radial-gradient(800px 500px at 20% 10%, rgba(255,200,120,0.03), transparent 8%),
-      linear-gradient(180deg,#030312 0%, #061022 100%);
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
-  .stage::after{content:"";position:absolute;inset:0;border-radius:18px;box-shadow:inset 0 80px 120px rgba(0,0,0,0.55);pointer-events:none;}
-  .timeline{position:absolute;inset:0;z-index:2;}
-  .scene{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:28px;box-sizing:border-box;text-align:center;}
-  .badge{background:linear-gradient(180deg,rgba(255,255,255,0.04),rgba(255,255,255,0.02));padding:10px 14px;border-radius:14px;backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.03);display:inline-flex;gap:10px;align-items:center;}
-  .logo{width:44px;height:44px;border-radius:10px;background:linear-gradient(90deg,#ffd27a,#ff6fb5);display:flex;align-items:center;justify-content:center;color:#111;font-weight:800;}
-  .headline{font-weight:800;font-size:20px;letter-spacing:0.4px;filter:drop-shadow(0 8px 24px rgba(0,0,0,0.6));}
-  .sub{font-weight:300;font-size:13px;opacity:0.95;margin-top:8px;max-width:300px;}
-  .caption{margin-top:14px;background:linear-gradient(180deg,rgba(0,0,0,0.18),rgba(255,255,255,0.01));padding:10px 14px;border-radius:10px;backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.03);display:inline-block;font-size:14px;}
-  .photo{width:84%;max-width:320px;height:56%;border-radius:12px;overflow:hidden;box-shadow:0 22px 50px rgba(0,0,0,0.6);transform-origin:center;background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(0,0,0,0.06));border:1px solid rgba(255,255,255,0.03);}
-  .photo img{width:100%;height:100%;object-fit:cover;display:block;transform:scale(1.02);transition:transform 1s ease;}
-  .watermark{position:absolute;right:12px;bottom:12px;z-index:10;font-weight:700;font-size:12px;display:flex;gap:8px;align-items:center;background:linear-gradient(90deg,rgba(255,255,255,0.06),rgba(255,255,255,0.02));padding:8px 10px;border-radius:10px;backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,0.03);}
-  .tiny{font-size:11px;opacity:0.9;}
-  .legal{position:absolute;left:12px;bottom:12px;font-size:11px;opacity:0.9;background:rgba(0,0,0,0.22);padding:8px 10px;border-radius:8px;border:1px solid rgba(255,255,255,0.03);backdrop-filter:blur(6px);}
-  /* hidden state */
-  .hidden{opacity:0;transform:translateY(12px) scale(0.99);}
-  .visible{opacity:1;transform:translateY(0) scale(1);transition:opacity 600ms cubic-bezier(.2,.9,.3,1),transform 700ms cubic-bezier(.2,.9,.3,1);}
-  @media(min-width:800px){.stage{width:420px}.headline{font-size:22px}}
+  body {
+    background: black;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    text-align: center;
+  }
+  h1 {
+    font-size: 2.5em;
+    color: #ff8ae2;
+    text-shadow: 0 0 25px #ff62d6;
+    margin-bottom: 0.3em;
+    animation: pop 0.8s ease-out forwards;
+  }
+  h3 {
+    font-family: 'Pacifico', cursive;
+    font-size: 1.8em;
+    color: #ffdaff;
+    text-shadow: 0 0 12px #f5a6ff;
+    margin-bottom: 1em;
+    animation: pop 0.8s ease-out 0.3s forwards;
+  }
+  .photo-container {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 0 25px rgba(255, 140, 255, 0.7);
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: zoomIn 1s ease forwards;
+  }
+  .photo-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: fadeIn 1.5s ease forwards;
+  }
+  .text {
+    margin-top: 1em;
+    width: 85%;
+    font-size: 1em;
+    color: #ffffff;
+    text-shadow: 0 0 8px #ff6ef1;
+    line-height: 1.6em;
+    min-height: 100px;
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  @keyframes zoomIn {
+    from { transform: scale(0.8); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  @keyframes pop {
+    0% { transform: scale(0); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  .popup {
+    position: fixed;
+    bottom: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px 20px;
+    font-size: 1.1em;
+    box-shadow: 0 0 20px #ff82d6;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s ease;
+  }
+  .popup.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+  }
 </style>
 </head>
 <body>
-<div class="stage" id="stage">
-  <div class="timeline">
+  <canvas id="confettiCanvas"></canvas>
+  <h1>🎉 Happy Birthday 🎉</h1>
+  <h3>Dr. Surya Swathe</h3>
 
-    <!-- SCENE 1: Safety / Disclaimer (0 - 4s) -->
-    <div class="scene hidden" id="s1" aria-hidden="true">
-      <div class="badge" style="transform:translateY(-6px);">
-        <div class="logo">CM</div>
-        <div style="text-align:left">
-          <div style="font-weight:800;font-size:14px">CelebModeOn</div>
-          <div style="font-size:11px;opacity:0.9">Respect & Safety First</div>
-        </div>
-      </div>
-      <div style="height:12px"></div>
-      <div class="headline">Made with love, not to harm.</div>
-      <div class="sub">This fan art is created respectfully — no edits meant to defame, misrepresent, or exploit. Creators deserve dignity and digital safety.</div>
-      <div style="height:10px"></div>
-      <div class="tiny">#RespectCreators · #SafeSocialSpace</div>
-    </div>
-
-    <!-- SCENE 2: Empathy (4 - 8s) -->
-    <div class="scene hidden" id="s2" aria-hidden="true">
-      <div style="font-size:40px;filter:drop-shadow(0 14px 30px rgba(0,0,0,0.6));">✨</div>
-      <div style="height:6px"></div>
-      <div class="headline">To those hurt by online cruelty</div>
-      <div class="caption">May your strength carry you forward. You're not alone — fans who care will protect your dignity.</div>
-    </div>
-
-    <!-- SCENE 3: Photo 1 Reveal (8 - 11.5s) -->
-    <div class="scene hidden" id="s3" aria-hidden="true">
-      <div class="photo" id="photo1">
-        <img src="suryasre 2.png" alt="Suryasre photo 2" id="img2">
-      </div>
-      <div style="height:12px"></div>
-      <div class="caption">With admiration, empathy, and endless respect.</div>
-    </div>
-
-    <!-- SCENE 4: Photo 2 Reveal + Closing (11.5 - 15s) -->
-    <div class="scene hidden" id="s4" aria-hidden="true">
-      <div class="photo" id="photo2">
-        <img src="suryasre.png" alt="Suryasre photo" id="img1">
-      </div>
-      <div style="height:12px"></div>
-      <div style="display:flex;flex-direction:column;gap:8px;align-items:center;">
-        <div style="font-weight:700;font-size:15px">Wishing courage, brighter days, and meaningful growth ✨</div>
-        <div style="font-size:13px;opacity:0.95">From a caring fan — CelebModeOn ❤️</div>
-      </div>
-    </div>
-
+  <div class="photo-container">
+    <img id="photo" src="./surya1.jpg" alt="Birthday">
   </div>
 
-  <div class="watermark" aria-hidden="true">
-    <div style="width:28px;height:28px;border-radius:6px;background:linear-gradient(90deg,#ffd27a,#ff6fb5);display:flex;align-items:center;justify-content:center;font-weight:800;color:#111;">CM</div>
-    <div style="font-size:12px">CelebModeOn</div>
-  </div>
-
-  <div class="legal" aria-hidden="true">This fan art is artistic and respectful. No intent to defame; rights remain with the creator.</div>
-</div>
+  <div class="text" id="typedText"></div>
+  <div id="popup" class="popup">Celebrate your day 🥳</div>
 
 <script>
-/* Timeline schedule:
-  Scene timings (seconds):
-  s1: 0.0 - 4.0
-  s2: 4.0 - 8.0
-  s3: 8.0 - 11.5
-  s4: 11.5 - 15.0
-  End: fade out at 15.0
-*/
+  const textElement = document.getElementById("typedText");
+  const popup = document.getElementById("popup");
+  const photo = document.getElementById("photo");
 
-const scenes = {
-  s1: document.getElementById('s1'),
-  s2: document.getElementById('s2'),
-  s3: document.getElementById('s3'),
-  s4: document.getElementById('s4'),
-  stage: document.getElementById('stage'),
-  img1: document.getElementById('img1'),
-  img2: document.getElementById('img2')
-};
+  const message = 
+  "Wishing you a very happy and blessed medical journey ahead, Dr. Surya Swathe! 💖 Have another cheerful, surprise-filled year with your dearest friends, family, and favorite ones. Shine brighter, heal stronger, and keep inspiring everyone around you. - Kevin Lazarus 🫶";
 
-function show(el){ if(!el) return; el.classList.remove('hidden'); el.classList.add('visible'); el.setAttribute('aria-hidden','false'); }
-function hide(el){ if(!el) return; el.classList.remove('visible'); el.classList.add('hidden'); el.setAttribute('aria-hidden','true'); }
+  const photoUrls = ["./surya1.jpg", "./surya2.jpg"];
+  let imgIndex = 0;
+  setInterval(() => {
+    imgIndex = (imgIndex + 1) % photoUrls.length;
+    photo.src = photoUrls[imgIndex];
+  }, 2500);
 
-function scheduleAt(sec, fn){
-  const t0 = startTime;
-  const ms = Math.max(0, Math.round(sec*1000 - (performance.now() - t0)));
-  setTimeout(fn, ms);
-}
+  function typeTextFast() {
+    let i = 0;
+    const speed = 20; // fast typing speed
+    const type = () => {
+      if (i < message.length) {
+        textElement.innerHTML = message.substring(0, i + 1);
+        i++;
+        setTimeout(type, speed);
+      } else {
+        triggerCelebration();
+      }
+    };
+    type();
+  }
 
-let startTime = performance.now();
+  function triggerCelebration() {
+    popup.classList.add("show");
+    setTimeout(() => popup.classList.remove("show"), 4000);
 
-document.addEventListener('DOMContentLoaded', ()=> {
-  startTime = performance.now();
-  // s1
-  scheduleAt(0.01, ()=> show(scenes.s1));
-  scheduleAt(4.0, ()=> hide(scenes.s1));
-  // s2
-  scheduleAt(4.01, ()=> show(scenes.s2));
-  scheduleAt(8.0, ()=> hide(scenes.s2));
-  // s3
-  scheduleAt(8.02, ()=> {
-    show(scenes.s3);
-    if(scenes.img1) { scenes.img1.style.transform = 'scale(1.08)'; setTimeout(()=> scenes.img1.style.transform='scale(1.02)', 1100); }
-  });
-  scheduleAt(11.5, ()=> hide(scenes.s3));
-  // s4
-  scheduleAt(11.52, ()=> {
-    show(scenes.s4);
-    if(scenes.img2) { scenes.img2.style.transform = 'scale(1.06)'; setTimeout(()=> scenes.img2.style.transform='scale(1.02)', 1100); }
-  });
-  // final fade
-  scheduleAt(15.0, ()=> {
-    scenes.stage.style.transition = 'opacity 800ms ease';
-    scenes.stage.style.opacity = 0;
-  });
-});
+    const canvas = document.getElementById("confettiCanvas");
+    const ctx = canvas.getContext("2d");
+    const confettiCount = 300;
+    const confetti = [];
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener("resize", resize);
+
+    for (let i = 0; i < confettiCount; i++) {
+      confetti.push({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height - canvas.height,
+        r: Math.random() * 6 + 4,
+        d: Math.random() * confettiCount,
+        color: `hsl(${Math.random() * 360},100%,70%)`,
+        tilt: Math.floor(Math.random() * 10) - 10
+      });
+    }
+
+    function drawConfetti() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      confetti.forEach(c => {
+        ctx.beginPath();
+        ctx.fillStyle = c.color;
+        ctx.fillRect(c.x, c.y, c.r, c.r);
+      });
+      update();
+    }
+
+    function update() {
+      confetti.forEach(c => {
+        c.y += Math.cos(c.d) + 1 + c.r / 2;
+        c.x += Math.sin(0.01);
+        if (c.y > canvas.height) {
+          c.y = -10;
+          c.x = Math.random() * canvas.width;
+        }
+      });
+    }
+
+    function animate() {
+      drawConfetti();
+      requestAnimationFrame(animate);
+    }
+    animate();
+  }
+
+  window.onload = () => {
+    typeTextFast();
+    triggerCelebration();
+  };
 </script>
+
 </body>
 </html>
