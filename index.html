@@ -31,6 +31,7 @@
     animation: pop 0.8s ease-out forwards;
   }
   h3 {
+    /* Changed to Crimson Text as per original intent but now available */
     font-family: 'Crimson Text', serif;
     font-size: 1.8em;
     color: #ffdaff;
@@ -38,57 +39,30 @@
     margin-bottom: 1em;
     animation: pop 0.8s ease-out 0.3s forwards;
   }
-
-  /* RECTIFIED PHOTO CONTAINER STYLES */
   .photo-container {
     position: relative;
-    /* Use a responsive width */
-    width: 80vw;
-    /* Set a max width for desktop screens */
-    max-width: 350px;
-    /* Aspect ratio hack for a square container */
-    padding-bottom: 80vw; /* This creates the height equal to 80vw */
-    height: 0; /* Override the calculated height */
-    
+    width: min(80vw, 350px);
+    height: min(80vw, 350px);
     border-radius: 20px;
     overflow: hidden;
     box-shadow: 0 0 25px rgba(255, 140, 255, 0.7);
     background: rgba(255,255,255,0.1);
     backdrop-filter: blur(10px);
-    
-    /* Ensure child image is positioned absolutely within the container */
-    display: block; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
     animation: zoomIn 1s ease forwards;
   }
-  
   .photo-container img {
-    /* Make image fill the entire container */
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
-    
-    /* CRUCIAL: Scales the content to cover the box, maintaining aspect ratio. */
     object-fit: cover;
-    
     animation: fadeIn 1.5s ease forwards;
   }
-  
-  /* Media query to fine-tune the container on desktop, if needed, 
-     but max-width handles most of it.
-  @media (min-width: 768px) {
-    .photo-container {
-      width: 350px; 
-      padding-bottom: 350px; 
-    }
-  } 
-  */
-  /* END OF RECTIFIED PHOTO CONTAINER STYLES */
-
   .text {
     margin-top: 1em;
     width: 85%;
+    /* Poppins is already default, but kept for clarity */
     font-family: 'Poppins', sans-serif;
     font-size: 1.3em;
     color: #ffffff;
@@ -98,6 +72,7 @@
   }
   .signature {
     margin-top: 0.8em;
+    /* Changed to Literata for the signature style */
     font-family: 'Literata', serif;
     font-weight: 700;
     font-size: 1.1em;
@@ -174,7 +149,7 @@
   </div>
 
   <div class="text" id="typedText"></div>
-  <div class="signature" id="signature">— Kevin Lazarus 🫶</div>
+  <div class="signature" id="signature">Kevin Lazarus 🫶</div>
 
   <div id="popup" class="popup"><span class="balloon">🎈</span><span id="popupText">Celebrate your day 🥳</span></div>
 
