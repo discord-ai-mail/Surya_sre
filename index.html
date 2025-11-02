@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Happy Birthday Dr. Surya Swathe</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
 <style>
   * {
     margin: 0;
@@ -62,16 +62,21 @@
     margin-top: 1em;
     width: 85%;
     font-family: 'Poppins', sans-serif;
-    font-size: 1em;
+    font-size: 1.3em;
     color: #ffffff;
     text-shadow: 0 0 8px #ff6ef1;
     line-height: 1.6em;
     min-height: 100px;
   }
-  .p {
-    font-family: 'Poppins', sans-serif;
-    font-size: 0.6em;
-    color: #ffffff;
+  .signature {
+    margin-top: 0.8em;
+    font-family: 'Dancing Script', bold;
+    font-weight: 700;
+    font-size: 1.1em;
+    color: #fff;
+    text-shadow: 0 0 10px #ff8ae2;
+    opacity: 0;
+    transition: opacity 1s ease;
   }
   @keyframes fadeIn {
     from { opacity: 0; transform: scale(0.9); }
@@ -87,21 +92,39 @@
   }
   .popup {
     position: fixed;
-    bottom: 40px;
-    background: rgba(255, 255, 255, 0.1);
+    bottom: 20px;
+    background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(10px);
     color: #fff;
-    border-radius: 10px;
-    padding: 10px 20px;
+    border-radius: 15px;
+    padding: 12px 25px;
     font-size: 1.1em;
     box-shadow: 0 0 20px #ff82d6;
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(40px);
     transition: all 0.5s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
   }
   .popup.show {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(-150px);
+    animation: balloonRise 3.5s ease-in-out forwards;
+  }
+  @keyframes balloonRise {
+    0% { transform: translateY(0); opacity: 1; }
+    80% { transform: translateY(-150px); opacity: 1; }
+    100% { transform: translateY(-250px); opacity: 0; }
+  }
+  .balloon {
+    font-size: 1.6em;
+    animation: floatBalloon 3.5s ease-in-out forwards;
+  }
+  @keyframes floatBalloon {
+    0% { transform: translateY(0) rotate(0deg); }
+    100% { transform: translateY(-250px) rotate(-10deg); opacity: 0; }
   }
   canvas {
     position: fixed;
@@ -123,15 +146,19 @@
   </div>
 
   <div class="text" id="typedText"></div>
-  <div id="popup" class="popup">Celebrate your day 🥳</div>
+  <div class="signature" id="signature">— Kevin Lazarus 🫶</div>
+
+  <div id="popup" class="popup"><span class="balloon">🎈</span><span id="popupText">Celebrate your day 🥳</span></div>
 
 <script>
   const textElement = document.getElementById("typedText");
   const popup = document.getElementById("popup");
   const photo = document.getElementById("photo");
+  const signature = document.getElementById("signature");
 
-  const message = 
-  "Wishing you a very happy and blessed medical journey ahead, Dr. Surya Swathe!  Have another cheerful, surprise-filled year with your dearest friends, family, and favorite ones. Shine brighter, heal stronger, and keep inspiring everyone around you. - Kevin Lazarus 🫶";
+  const message =
+  "Wishing you a very happy and blessed medical journey ahead, Dr. Surya Swathe! Have another cheerful, surprise-filled year with your dearest friends, family, and favorite ones. Shine brighter, heal stronger, and keep inspiring everyone around you.";
+
   const photoUrls = ["./surya1.jpg", "./surya2.jpg"];
   let imgIndex = 0;
   setInterval(() => {
@@ -141,13 +168,14 @@
 
   function typeTextFast() {
     let i = 0;
-    const speed = 20; // fast typing speed
+    const speed = 25;
     const type = () => {
       if (i < message.length) {
         textElement.innerHTML = message.substring(0, i + 1);
         i++;
         setTimeout(type, speed);
       } else {
+        signature.style.opacity = "1";
         triggerCelebration();
       }
     };
